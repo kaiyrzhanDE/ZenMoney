@@ -6,28 +6,32 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+private val applicationId = "kaiyrzhan.de.mvkitchen"
+private val jdkVersion = libs.versions.android.javaVersion.get().toInt()
+
 android {
-    namespace = "kaiyrzhan.de.mvkitchen"
+    namespace = applicationId
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
-        applicationId = "kaiyrzhan.de.mvkitchen"
+        this.applicationId = applicationId
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = libs.versions.app.versionCode.get().toInt()
         versionName = libs.versions.app.versionName.get()
     }
-    val jdkVersion = libs.versions.android.javaVersion.get().toInt()
     compileOptions {
         val javaVersion = JavaVersion.toVersion(jdkVersion)
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
     }
-    kotlinOptions {
-        val jvmVersion = JvmTarget.valueOf("JVM_$jdkVersion")
-        jvmTarget = jvmVersion.target
-    }
     buildFeatures {
         compose = true
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.valueOf("JVM_$jdkVersion"))
     }
 }
 
