@@ -1,4 +1,4 @@
-package kaiyrzhan.de.mvkitchen.ui.theme
+package kaiyrzhan.de.mvkitchen.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

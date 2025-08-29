@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import kaiyrzhan.de.mvkitchen.ui.theme.MVKitchenTheme
+import kaiyrzhan.de.mvkitchen.core.ui.theme.MVKitchenTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
