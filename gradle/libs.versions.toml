@@ -19,6 +19,8 @@ androidx-appcompat = "1.7.1"
 androidx-activity-compose = "1.10.1"
 androidx-compose-bom = "2025.08.01"
 
+ktlint = "1.7.1"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
@@ -35,6 +37,8 @@ gradleplugins-android = { group = "com.android.tools.build", name = "gradle", ve
 gradleplugins-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleplugins-compose-compiler = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
 
+ktlint-cli = { group = "com.pinterest.ktlint", name = "ktlint-cli", version.ref = "ktlint" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
@@ -48,3 +52,4 @@ mvkitchen-android-application = { id = "android.application" }
 mvkitchen-android-library = { id = "android.library" }
 mvkitchen-kotlin-library = { id = "kotlin.library" }
 mvkitchen-jetpack-compose = { id = "jetpack-compose.base" }
+mvkitchen-ktlint = { id = "ktlint" }
