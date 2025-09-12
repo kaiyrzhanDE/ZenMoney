@@ -32,3 +32,4 @@ dependencyResolutionManagement {
 
 include(":app")
 include(":core:ui")
+include(":library:kotlin")
