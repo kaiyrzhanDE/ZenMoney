@@ -15,6 +15,7 @@ dependencies {
 }
 
 java {
-    targetCompatibility = JavaVersion.VERSION_21
-    sourceCompatibility = JavaVersion.VERSION_21
+    val javaVersion = JavaVersion.toVersion(libs.versions.gradleplugins.javaVersion.get().toInt())
+    targetCompatibility = javaVersion
+    sourceCompatibility = javaVersion
 }

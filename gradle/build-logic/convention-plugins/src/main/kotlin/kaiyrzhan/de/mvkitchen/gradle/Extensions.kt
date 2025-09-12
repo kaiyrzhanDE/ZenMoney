@@ -8,12 +8,10 @@ import com.android.build.api.dsl.BuildType
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.DefaultConfig
 import com.android.build.api.dsl.Installation
-import com.android.build.api.dsl.LibraryDefaultConfig
 import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.ProductFlavor
 import com.android.build.api.dsl.TestExtension
 import com.android.build.gradle.internal.dsl.DynamicFeatureExtension
-import net.rubygrapefruit.platform.internal.LibraryDef
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -96,7 +94,7 @@ private val Project.javaExtension: JavaPluginExtension
         return extensions.findByType(JavaPluginExtension::class)
             ?: error(
                 "\"Project.javaExtension\" value may be called only "
-                        + "from android application",
+                        + "from kotlin or java library",
             )
     }
 
@@ -120,6 +118,11 @@ internal fun Project.buildNameSpace(): String {
     val suffix = project.path //Returns :feature:login
         .removePrefix(":")
         .replace(":", ".")
-    println("buildNameSpace: ${"${ProjectTargets.Android.APPLICATION_ID}.$suffix"}")
-    return "${ProjectTargets.Android.APPLICATION_ID}.$suffix"
+    val namespace = buildString {
+        append(ProjectTargets.Android.APPLICATION_ID)
+        append('.')
+        append(suffix)
+    }
+    println("buildNameSpace: $namespace")
+    return namespace
 }
