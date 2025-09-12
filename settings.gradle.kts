@@ -4,6 +4,8 @@ rootProject.name = "MVKitchen"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
+    includeBuild("gradle/build-logic")
+
     repositories {
         google {
             mavenContent {
@@ -30,6 +32,20 @@ dependencyResolutionManagement {
     }
 }
 
+
+private fun isDirectoryGradleModule(file: File): Boolean {
+    val buildGradleFile = File(file, "build.gradle.kts")
+    return file.isDirectory && buildGradleFile.isFile && buildGradleFile.exists()
+}
+
+private fun includeAllModules(directory: String) {
+    file(directory)
+        .listFiles { directoryFile -> isDirectoryGradleModule(directoryFile) }
+        ?.forEach { directoryFile -> include(":${directory.replace('/', ':')}:${directoryFile.name}") }
+}
+
+includeAllModules(directory = "core")
+includeAllModules(directory = "library")
+
 include(":app")
-include(":core:ui")
-include(":library:kotlin")
+project(":app").name = "MVKitchenApp"

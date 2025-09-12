@@ -6,5 +6,5 @@ plugins {
 }
 
 android {
-    namespace = buildApplicationId("core.ui")
+    namespace = buildApplicationId("library.android")
 }

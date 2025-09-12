@@ -29,10 +29,20 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 
+gradleplugins-android = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
+gradleplugins-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+gradleplugins-compose-compiler = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.2.0" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+java-library = { id = "java-library" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
+mvkitchen-android-base = { id = "android.base" }
+mvkitchen-android-application = { id = "android.application" }
+mvkitchen-android-library = { id = "android.library" }
+mvkitchen-kotlin-library = { id = "kotlin.library" }
+mvkitchen-jetpack-compose = { id = "jetpack-compose.base" }

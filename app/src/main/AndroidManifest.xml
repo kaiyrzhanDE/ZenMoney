@@ -8,14 +8,13 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".feature.app.MVKitchenApp"
+        android:name="kaiyrzhan.de.mvkitchen.ui.MVKitchenApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MVKitchen">
         <activity
-            android:name=".feature.app.MainActivity"
+            android:name="kaiyrzhan.de.mvkitchen.ui.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.MVKitchen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

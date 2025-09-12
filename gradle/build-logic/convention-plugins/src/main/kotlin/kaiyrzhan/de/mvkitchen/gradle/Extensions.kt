@@ -1,0 +1,113 @@
+package kaiyrzhan.de.mvkitchen.gradle
+
+import com.android.build.api.dsl.AndroidResources
+import com.android.build.api.dsl.ApplicationDefaultConfig
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.BuildFeatures
+import com.android.build.api.dsl.BuildType
+import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.DefaultConfig
+import com.android.build.api.dsl.Installation
+import com.android.build.api.dsl.LibraryDefaultConfig
+import com.android.build.api.dsl.LibraryExtension
+import com.android.build.api.dsl.ProductFlavor
+import com.android.build.api.dsl.TestExtension
+import com.android.build.gradle.internal.dsl.DynamicFeatureExtension
+import net.rubygrapefruit.platform.internal.LibraryDef
+import org.gradle.accessors.dm.LibrariesForLibs
+import org.gradle.api.JavaVersion
+import org.gradle.api.Project
+import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.kotlin.dsl.findByType
+import org.gradle.kotlin.dsl.the
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompilerOptions
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
+internal val Project.libs: LibrariesForLibs
+    get() = the<LibrariesForLibs>()
+
+internal fun LibrariesForLibs.javaVersion(target: ProjectTargets.JvmTarget): JavaVersion {
+    val jdkVersion = jvmVersion(target)
+    require(jdkVersion >= 10)
+    return JavaVersion.toVersion(jdkVersion)
+}
+
+private fun LibrariesForLibs.jvmVersion(target: ProjectTargets.JvmTarget): Int {
+    return when (target) {
+        ProjectTargets.Android -> versions.android.javaVersion.get().toInt()
+    }
+}
+
+internal fun LibrariesForLibs.jvmTarget(target: ProjectTargets.JvmTarget): JvmTarget {
+    val jdkVersion = jvmVersion(target)
+    require(jdkVersion >= 10)
+    return JvmTarget.valueOf("JVM_$jdkVersion")
+}
+
+
+private typealias AndroidExtensions = CommonExtension<
+        out BuildFeatures,
+        out BuildType,
+        out DefaultConfig,
+        out ProductFlavor,
+        out AndroidResources,
+        out Installation,
+        >
+
+private val Project.androidExtension: AndroidExtensions
+    get() {
+        return extensions.findByType(ApplicationExtension::class)
+            ?: extensions.findByType(LibraryExtension::class)
+            ?: extensions.findByType(DynamicFeatureExtension::class)
+            ?: extensions.findByType(TestExtension::class)
+            ?: error(
+                "\"Project.androidExtension\" value may be called only "
+                        + "from android application"
+                        + " or android library gradle script",
+            )
+    }
+
+internal fun Project.androidConfig(
+    block: AndroidExtensions.() -> Unit
+): Unit = block(androidExtension)
+
+private val Project.applicationExtension: ApplicationExtension
+    get() {
+        return extensions.findByType(ApplicationExtension::class)
+            ?: error(
+                "\"Project.applicationExtension\" value may be called only "
+                        + "from android application",
+            )
+    }
+
+internal fun Project.applicationDefaultConfig(
+    block: ApplicationDefaultConfig.() -> Unit
+): Unit = applicationExtension.defaultConfig(block)
+
+private val Project.javaExtension: JavaPluginExtension
+    get() {
+        return extensions.findByType(JavaPluginExtension::class)
+            ?: error(
+                "\"Project.javaExtension\" value may be called only "
+                        + "from android application",
+            )
+    }
+
+internal fun Project.javaConfig(
+    block: JavaPluginExtension.() -> Unit
+): Unit = block(javaExtension)
+
+internal fun Project.kotlinJvmCompilerOptions(block: KotlinJvmCompilerOptions.() -> Unit) {
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions(block)
+    }
+}
+
+internal val Project.kotlinBaseExtension: KotlinBaseExtension
+    get() = extensions.findByType(KotlinBaseExtension::class)
+        ?: error("Kotlin base plugin is not applied")
+
+internal fun Project.enableExplicitApi() = kotlinBaseExtension.explicitApi()

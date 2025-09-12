@@ -1,0 +1,20 @@
+plugins {
+    `kotlin-dsl`
+}
+
+group = "kaiyrzhan.de.mvkitchen.gradle"
+
+dependencies {
+    implementation(libs.gradleplugins.android)
+    implementation(libs.gradleplugins.kotlin)
+    implementation(libs.gradleplugins.compose.compiler)
+
+    // Workaround for version catalog working inside precompiled scripts
+    // Issue - https://github.com/gradle/gradle/issues/15383
+    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
+}
+
+java {
+    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_21
+}
