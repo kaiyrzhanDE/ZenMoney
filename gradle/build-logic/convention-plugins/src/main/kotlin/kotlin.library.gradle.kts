@@ -1,5 +1,6 @@
 import kaiyrzhan.de.mvkitchen.gradle.ProjectTargets
 import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
+import kaiyrzhan.de.mvkitchen.gradle.enableExplicitApi
 import kaiyrzhan.de.mvkitchen.gradle.javaConfig
 import kaiyrzhan.de.mvkitchen.gradle.javaVersion
 import kaiyrzhan.de.mvkitchen.gradle.jvmTarget
@@ -18,3 +19,5 @@ javaConfig {
 kotlinJvmCompilerOptions {
     jvmTarget.set(libs.jvmTarget(ProjectTargets.Android))
 }
+
+enableExplicitApi()
