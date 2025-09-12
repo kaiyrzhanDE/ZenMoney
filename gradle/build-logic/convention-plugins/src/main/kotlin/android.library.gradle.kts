@@ -1,7 +1,7 @@
 import kaiyrzhan.de.mvkitchen.gradle.ProjectTargets
 import kaiyrzhan.de.mvkitchen.gradle.androidConfig
 import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
-import kaiyrzhan.de.mvkitchen.gradle.buildNameSpace
+import kaiyrzhan.de.mvkitchen.gradle.configureCommonBuildTypes
 import kaiyrzhan.de.mvkitchen.gradle.implementation
 import kaiyrzhan.de.mvkitchen.gradle.javaVersion
 import kaiyrzhan.de.mvkitchen.gradle.jvmTarget
@@ -14,6 +14,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
 }
+
+configureCommonBuildTypes()
 
 kotlinJvmCompilerOptions {
     jvmTarget.set(libs.jvmTarget(ProjectTargets.Android))

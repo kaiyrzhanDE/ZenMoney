@@ -1,10 +1,73 @@
 package kaiyrzhan.de.mvkitchen.gradle
 
-enum class BuildType(val type: String) {
-    RELEASE("release"),
-    DEBUG("debug");
+import com.android.build.api.dsl.BuildType as CommonBuildType
+import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
+import org.gradle.api.NamedDomainObjectContainer
+import org.gradle.api.Project
 
-    override fun toString(): String {
-        return type
+internal enum class BuildType(
+    val type: String,
+    val applicationIdSuffix: String?,
+    val versionNameSuffix: String?,
+    val isMinifyEnabled: Boolean,
+) {
+    RELEASE(
+        type = "release",
+        applicationIdSuffix = null,
+        versionNameSuffix = null,
+        isMinifyEnabled = true,
+    ),
+    DEBUG(
+        type = "debug",
+        applicationIdSuffix = ".debug",
+        versionNameSuffix = "-debug",
+        isMinifyEnabled = false,
+    );
+
+    override fun toString(): String = type
+
+    fun isReleaseBuild(): Boolean = this == RELEASE
+}
+
+internal fun <BuildTypeT> NamedDomainObjectContainer<BuildTypeT>.getByType(
+    buildType: BuildType,
+    block: BuildTypeT.(BuildType) -> Unit,
+) {
+    getByName(buildType.type) { block(buildType) }
+}
+
+private fun CommonBuildType.applyCommonConfig(type: BuildType, project: Project) {
+    isMinifyEnabled = type.isMinifyEnabled
+    if (type.isReleaseBuild()) {
+        proguardFiles(
+            getDefaultProguardFile("proguard-android-optimize.txt", project.layout.buildDirectory),
+            project.file("proguard-rules.pro")
+        )
+    }
+}
+
+internal fun Project.configureCommonBuildTypes() {
+    androidConfig {
+        buildTypes {
+            BuildType.values().forEach { type ->
+                getByType(type) {
+                    applyCommonConfig(type, project)
+                }
+            }
+        }
+    }
+}
+
+internal fun Project.configureAppBuildTypes() {
+    applicationConfig {
+        buildTypes {
+            BuildType.values().forEach { type ->
+                getByType(type) {
+                    applyCommonConfig(type, project)
+                    applicationIdSuffix = type.applicationIdSuffix
+                    versionNameSuffix = type.versionNameSuffix
+                }
+            }
+        }
     }
 }

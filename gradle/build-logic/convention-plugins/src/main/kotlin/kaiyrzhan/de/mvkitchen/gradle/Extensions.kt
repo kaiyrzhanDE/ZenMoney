@@ -83,6 +83,10 @@ private val Project.applicationExtension: ApplicationExtension
             )
     }
 
+internal fun Project.applicationConfig(
+    block: ApplicationExtension.() -> Unit
+): Unit = block(applicationExtension)
+
 internal fun Project.applicationDefaultConfig(
     block: ApplicationDefaultConfig.() -> Unit
 ): Unit = applicationExtension.defaultConfig(block)
