@@ -1,4 +1,3 @@
-import kaiyrzhan.de.mvkitchen.gradle.APPLICATION_ID
 import kaiyrzhan.de.mvkitchen.gradle.ProjectTargets
 import kaiyrzhan.de.mvkitchen.gradle.applicationDefaultConfig
 import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
@@ -10,13 +9,13 @@ import kaiyrzhan.de.mvkitchen.gradle.libs
 plugins.applyIfNeeded(libs.plugins.android.application.get().pluginId)
 
 applicationDefaultConfig {
-    this.applicationId = APPLICATION_ID
+    this.applicationId = ProjectTargets.Android.APPLICATION_ID
     targetSdk = libs.versions.android.targetSdk.get().toInt()
     versionCode = libs.versions.app.versionCode.get().toInt()
     versionName = libs.versions.app.versionName.get()
 }
 
-project.dependencies {
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 

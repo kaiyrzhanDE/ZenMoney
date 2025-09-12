@@ -1,4 +1,4 @@
-package kaiyrzhan.de.mvkitchen.ui
+package kaiyrzhan.de.mvkitchen.app.ui
 
 import android.app.Application
 

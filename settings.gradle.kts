@@ -48,4 +48,3 @@ includeAllModules(directory = "core")
 includeAllModules(directory = "library")
 
 include(":app")
-project(":app").name = "MVKitchenApp"

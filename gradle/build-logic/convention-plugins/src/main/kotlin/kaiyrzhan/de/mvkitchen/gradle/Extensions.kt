@@ -111,3 +111,11 @@ internal val Project.kotlinBaseExtension: KotlinBaseExtension
         ?: error("Kotlin base plugin is not applied")
 
 internal fun Project.enableExplicitApi() = kotlinBaseExtension.explicitApi()
+
+internal fun Project.buildNameSpace(): String {
+    val suffix = project.path //Returns :feature:login
+        .removePrefix(":")
+        .replace(":", ".")
+    println("buildNameSpace: ${"${ProjectTargets.Android.APPLICATION_ID}.$suffix"}")
+    return "${ProjectTargets.Android.APPLICATION_ID}.$suffix"
+}

@@ -5,11 +5,6 @@ import org.gradle.api.plugins.PluginContainer
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-public const val APPLICATION_ID = "kaiyrzhan.de.mvkitchen"
-public fun buildApplicationId(suffix: String): String {
-    return "$APPLICATION_ID.$suffix"
-}
-
 private const val IMPLEMENTATION = "implementation"
 internal fun DependencyHandlerScope.implementation(dependencyNotation: Provider<MinimalExternalModuleDependency>){
     IMPLEMENTATION(dependencyNotation)
