@@ -14,6 +14,7 @@ import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.ProductFlavor
 import com.android.build.api.dsl.TestExtension
 import com.android.build.gradle.internal.dsl.DynamicFeatureExtension
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -71,8 +72,8 @@ private val Project.androidExtension: AndroidExtensions
     }
 
 internal fun Project.androidConfig(
-    block: AndroidExtensions.() -> Unit
-): Unit = block(androidExtension)
+    block: AndroidExtensions.() -> Unit,
+) = block(androidExtension)
 
 private val Project.applicationExtension: ApplicationExtension
     get() {
@@ -84,12 +85,12 @@ private val Project.applicationExtension: ApplicationExtension
     }
 
 internal fun Project.applicationConfig(
-    block: ApplicationExtension.() -> Unit
-): Unit = block(applicationExtension)
+    block: ApplicationExtension.() -> Unit,
+) = block(applicationExtension)
 
 internal fun Project.applicationDefaultConfig(
-    block: ApplicationDefaultConfig.() -> Unit
-): Unit = applicationExtension.defaultConfig(block)
+    block: ApplicationDefaultConfig.() -> Unit,
+) = applicationExtension.defaultConfig(block)
 
 private val Project.javaExtension: JavaPluginExtension
     get() {
@@ -101,8 +102,8 @@ private val Project.javaExtension: JavaPluginExtension
     }
 
 internal fun Project.javaConfig(
-    block: JavaPluginExtension.() -> Unit
-): Unit = block(javaExtension)
+    block: JavaPluginExtension.() -> Unit,
+) = block(javaExtension)
 
 internal fun Project.kotlinJvmCompilerOptions(block: KotlinJvmCompilerOptions.() -> Unit) {
     tasks.withType<KotlinJvmCompile>().configureEach {
@@ -115,6 +116,14 @@ internal val Project.kotlinBaseExtension: KotlinBaseExtension
         ?: error("Kotlin base plugin is not applied")
 
 internal fun Project.enableExplicitApi() = kotlinBaseExtension.explicitApi()
+
+internal val Project.detektExtension: DetektExtension
+    get() = extensions.findByType(DetektExtension::class)
+        ?: error("Detekt plugin is not applied")
+
+internal fun Project.detektConfig(
+    block: DetektExtension.() -> Unit,
+) = block(detektExtension)
 
 internal fun Project.buildNameSpace(): String {
     val suffix = project.path //Returns :feature:login

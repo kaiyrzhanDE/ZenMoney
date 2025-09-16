@@ -20,6 +20,7 @@ androidx-activity-compose = "1.10.1"
 androidx-compose-bom = "2025.08.01"
 
 ktlint = "1.7.1"
+detekt = "1.23.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
@@ -36,6 +37,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 gradleplugins-android = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
 gradleplugins-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleplugins-compose-compiler = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
+gradleplugins-detekt = { group = "io.gitlab.arturbosch.detekt", name = "io.gitlab.arturbosch.detekt.gradle.plugin", version.ref = "detekt" }
 
 ktlint-cli = { group = "com.pinterest.ktlint", name = "ktlint-cli", version.ref = "ktlint" }
 
@@ -46,6 +48,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 java-library = { id = "java-library" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 mvkitchen-android-base = { id = "android.base" }
 mvkitchen-android-application = { id = "android.application" }
@@ -53,3 +56,4 @@ mvkitchen-android-library = { id = "android.library" }
 mvkitchen-kotlin-library = { id = "kotlin.library" }
 mvkitchen-jetpack-compose = { id = "jetpack-compose.base" }
 mvkitchen-ktlint = { id = "ktlint" }
+mvkitchen-detekt = { id = "detekt" }
