@@ -1,3 +1,5 @@
+@file:Suppress("ktlint")
+
 package kaiyrzhan.de.mvkitchen.gradle
 
 import com.android.build.api.dsl.BuildType as CommonBuildType
@@ -19,8 +21,8 @@ internal enum class BuildType(
     ),
     DEBUG(
         type = "debug",
-        applicationIdSuffix = ".debug",
-        versionNameSuffix = "-debug",
+        applicationIdSuffix = "debug",
+        versionNameSuffix = "debug",
         isMinifyEnabled = false,
     );
 
@@ -58,14 +60,20 @@ internal fun Project.configureCommonBuildTypes() {
     }
 }
 
+private fun String.withPrefix(prefix: String): String? {
+    return this
+        .takeIf { it.isNotBlank() }
+        .let { "$prefix$it" }
+}
+
 internal fun Project.configureAppBuildTypes() {
     applicationConfig {
         buildTypes {
             BuildType.values().forEach { type ->
                 getByType(type) {
                     applyCommonConfig(type, project)
-                    applicationIdSuffix = type.applicationIdSuffix
-                    versionNameSuffix = type.versionNameSuffix
+                    applicationIdSuffix = type.applicationIdSuffix?.withPrefix(".")
+                    versionNameSuffix = type.versionNameSuffix?.withPrefix("-")
                 }
             }
         }

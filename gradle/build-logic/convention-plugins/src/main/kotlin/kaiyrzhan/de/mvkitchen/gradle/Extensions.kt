@@ -1,3 +1,5 @@
+@file:Suppress("ktlint")
+
 package kaiyrzhan.de.mvkitchen.gradle
 
 import com.android.build.api.dsl.AndroidResources
@@ -47,13 +49,13 @@ internal fun LibrariesForLibs.jvmTarget(target: ProjectTargets.JvmTarget): JvmTa
 
 
 private typealias AndroidExtensions = CommonExtension<
-        out BuildFeatures,
-        out BuildType,
-        out DefaultConfig,
-        out ProductFlavor,
-        out AndroidResources,
-        out Installation,
-        >
+    out BuildFeatures,
+    out BuildType,
+    out DefaultConfig,
+    out ProductFlavor,
+    out AndroidResources,
+    out Installation,
+    >
 
 private val Project.androidExtension: AndroidExtensions
     get() {
@@ -63,8 +65,8 @@ private val Project.androidExtension: AndroidExtensions
             ?: extensions.findByType(TestExtension::class)
             ?: error(
                 "\"Project.androidExtension\" value may be called only "
-                        + "from android application"
-                        + " or android library gradle script",
+                    .plus("from android application")
+                    .plus(" or android library gradle script"),
             )
     }
 
@@ -77,7 +79,7 @@ private val Project.applicationExtension: ApplicationExtension
         return extensions.findByType(ApplicationExtension::class)
             ?: error(
                 "\"Project.applicationExtension\" value may be called only "
-                        + "from android application",
+                    .plus("from android application"),
             )
     }
 
@@ -94,7 +96,7 @@ private val Project.javaExtension: JavaPluginExtension
         return extensions.findByType(JavaPluginExtension::class)
             ?: error(
                 "\"Project.javaExtension\" value may be called only "
-                        + "from kotlin or java library",
+                    .plus("from kotlin or java library"),
             )
     }
 

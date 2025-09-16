@@ -1,3 +1,5 @@
+@file:Suppress("ktlint")
+
 package kaiyrzhan.de.mvkitchen.gradle
 
 sealed interface ProjectTargets {

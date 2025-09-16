@@ -22,7 +22,7 @@ internal class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
                     )
                 }
             }
@@ -31,10 +31,13 @@ internal class MainActivity : ComponentActivity() {
 }
 
 @Composable
-internal fun Greeting(name: String, modifier: Modifier = Modifier) {
+internal fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -43,5 +46,10 @@ internal fun Greeting(name: String, modifier: Modifier = Modifier) {
 internal fun GreetingPreview() {
     MVKitchenTheme {
         Greeting("Android")
+    }
+    val test = "Test"
+    when (test) {
+        "Test" -> Unit
+        "LOOOOOOOONG LINE" -> Unit
     }
 }
