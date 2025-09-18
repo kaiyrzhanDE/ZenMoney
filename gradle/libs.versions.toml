@@ -21,6 +21,7 @@ androidx-compose-bom = "2025.08.01"
 
 ktlint = "1.7.1"
 detekt = "1.23.8"
+compose-rules = "0.4.27"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
@@ -40,6 +41,8 @@ gradleplugins-compose-compiler = { group = "org.jetbrains.kotlin", name = "compo
 gradleplugins-detekt = { group = "io.gitlab.arturbosch.detekt", name = "io.gitlab.arturbosch.detekt.gradle.plugin", version.ref = "detekt" }
 
 ktlint-cli = { group = "com.pinterest.ktlint", name = "ktlint-cli", version.ref = "ktlint" }
+
+detektplugin-nlopez-composeRules = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "compose-rules" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }

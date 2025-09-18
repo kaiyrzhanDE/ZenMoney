@@ -21,6 +21,11 @@ internal fun DependencyHandlerScope.debugImplementation(dependencyNotation: Stri
     DEBUG_IMPLEMENTATION(dependencyNotation)
 }
 
+private const val DETEKT_PLUGINS = "detektPlugins"
+internal fun DependencyHandlerScope.detektPlugins(dependencyNotation: Provider<MinimalExternalModuleDependency>){
+    DETEKT_PLUGINS(dependencyNotation)
+}
+
 /**
  * Apply plugin if it is not applied yet
  */
