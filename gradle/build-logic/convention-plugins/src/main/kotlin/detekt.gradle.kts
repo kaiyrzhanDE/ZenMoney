@@ -1,8 +1,8 @@
 import io.gitlab.arturbosch.detekt.Detekt
-import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
-import kaiyrzhan.de.mvkitchen.gradle.detektConfig
-import kaiyrzhan.de.mvkitchen.gradle.detektPlugins
-import kaiyrzhan.de.mvkitchen.gradle.libs
+import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
+import kaiyrzhan.de.zenmoney.gradle.detektConfig
+import kaiyrzhan.de.zenmoney.gradle.detektPlugins
+import kaiyrzhan.de.zenmoney.gradle.libs
 import org.gradle.kotlin.dsl.withType
 import kotlin.apply
 

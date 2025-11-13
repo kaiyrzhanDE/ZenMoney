@@ -1,6 +1,6 @@
 @file:Suppress("ktlint")
 
-package kaiyrzhan.de.mvkitchen.gradle
+package kaiyrzhan.de.zenmoney.gradle
 
 import com.android.build.api.dsl.AndroidResources
 import com.android.build.api.dsl.ApplicationDefaultConfig

@@ -1,4 +1,4 @@
 plugins {
-    alias(libs.plugins.mvkitchen.android.library)
-    alias(libs.plugins.mvkitchen.jetpack.compose)
+    alias(libs.plugins.zenmoney.android.library)
+    alias(libs.plugins.zenmoney.jetpack.compose)
 }

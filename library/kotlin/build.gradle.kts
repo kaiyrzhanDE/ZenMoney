@@ -1,3 +1,3 @@
 plugins {
-    alias(libs.plugins.mvkitchen.kotlin.library)
+    alias(libs.plugins.zenmoney.kotlin.library)
 }

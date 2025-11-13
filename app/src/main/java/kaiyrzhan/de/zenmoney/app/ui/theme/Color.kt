@@ -1,4 +1,4 @@
-package kaiyrzhan.de.mvkitchen.app.ui.theme
+package kaiyrzhan.de.zenmoney.app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

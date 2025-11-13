@@ -1,4 +1,4 @@
-package kaiyrzhan.de.mvkitchen.app.ui
+package kaiyrzhan.de.zenmoney.app.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,14 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import kaiyrzhan.de.mvkitchen.app.ui.theme.MVKitchenTheme
+import kaiyrzhan.de.zenmoney.app.ui.theme.ZenMoneyTheme
 
 internal class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MVKitchenTheme {
+            ZenMoneyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
@@ -44,12 +44,7 @@ internal fun Greeting(
 @Preview(showBackground = true)
 @Composable
 internal fun GreetingPreview() {
-    MVKitchenTheme {
+    ZenMoneyTheme {
         Greeting("Android")
-    }
-    val test = "Test"
-    when (test) {
-        "Test" -> Unit
-        "LOOOOOOOONG LINE" -> Unit
     }
 }

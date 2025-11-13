@@ -1,10 +1,10 @@
-import kaiyrzhan.de.mvkitchen.gradle.ProjectTargets
-import kaiyrzhan.de.mvkitchen.gradle.androidConfig
-import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
-import kaiyrzhan.de.mvkitchen.gradle.buildNameSpace
-import kaiyrzhan.de.mvkitchen.gradle.enableExplicitApi
-import kaiyrzhan.de.mvkitchen.gradle.javaVersion
-import kaiyrzhan.de.mvkitchen.gradle.libs
+import kaiyrzhan.de.zenmoney.gradle.ProjectTargets
+import kaiyrzhan.de.zenmoney.gradle.androidConfig
+import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
+import kaiyrzhan.de.zenmoney.gradle.buildNameSpace
+import kaiyrzhan.de.zenmoney.gradle.enableExplicitApi
+import kaiyrzhan.de.zenmoney.gradle.javaVersion
+import kaiyrzhan.de.zenmoney.gradle.libs
 
 plugins.applyIfNeeded(libs.plugins.kotlin.android.get().pluginId)
 

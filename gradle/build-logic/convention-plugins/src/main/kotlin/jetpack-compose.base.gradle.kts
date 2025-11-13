@@ -1,7 +1,7 @@
-import kaiyrzhan.de.mvkitchen.gradle.androidConfig
-import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
-import kaiyrzhan.de.mvkitchen.gradle.implementation
-import kaiyrzhan.de.mvkitchen.gradle.libs
+import kaiyrzhan.de.zenmoney.gradle.androidConfig
+import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
+import kaiyrzhan.de.zenmoney.gradle.implementation
+import kaiyrzhan.de.zenmoney.gradle.libs
 
 plugins.applyIfNeeded(libs.plugins.kotlin.compose.get().pluginId)
 

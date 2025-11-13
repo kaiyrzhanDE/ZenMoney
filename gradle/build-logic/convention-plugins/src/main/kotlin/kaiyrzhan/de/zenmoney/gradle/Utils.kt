@@ -1,6 +1,6 @@
 @file:Suppress("ktlint")
 
-package kaiyrzhan.de.mvkitchen.gradle
+package kaiyrzhan.de.zenmoney.gradle
 
 import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.plugins.PluginContainer

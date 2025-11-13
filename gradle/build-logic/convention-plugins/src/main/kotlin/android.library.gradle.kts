@@ -1,12 +1,12 @@
-import kaiyrzhan.de.mvkitchen.gradle.ProjectTargets
-import kaiyrzhan.de.mvkitchen.gradle.androidConfig
-import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
-import kaiyrzhan.de.mvkitchen.gradle.configureCommonBuildTypes
-import kaiyrzhan.de.mvkitchen.gradle.implementation
-import kaiyrzhan.de.mvkitchen.gradle.javaVersion
-import kaiyrzhan.de.mvkitchen.gradle.jvmTarget
-import kaiyrzhan.de.mvkitchen.gradle.kotlinJvmCompilerOptions
-import kaiyrzhan.de.mvkitchen.gradle.libs
+import kaiyrzhan.de.zenmoney.gradle.ProjectTargets
+import kaiyrzhan.de.zenmoney.gradle.androidConfig
+import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
+import kaiyrzhan.de.zenmoney.gradle.configureCommonBuildTypes
+import kaiyrzhan.de.zenmoney.gradle.implementation
+import kaiyrzhan.de.zenmoney.gradle.javaVersion
+import kaiyrzhan.de.zenmoney.gradle.jvmTarget
+import kaiyrzhan.de.zenmoney.gradle.kotlinJvmCompilerOptions
+import kaiyrzhan.de.zenmoney.gradle.libs
 
 plugins.applyIfNeeded(libs.plugins.android.library.get().pluginId)
 
@@ -22,5 +22,5 @@ kotlinJvmCompilerOptions {
     freeCompilerArgs.add("-Xjdk-release=${libs.javaVersion(ProjectTargets.Android)}")
 }
 
-plugins.apply(libs.plugins.mvkitchen.android.base.get().pluginId)
+plugins.apply(libs.plugins.zenmoney.android.base.get().pluginId)
 

@@ -1,5 +1,5 @@
-import kaiyrzhan.de.mvkitchen.gradle.applyIfNeeded
-import kaiyrzhan.de.mvkitchen.gradle.libs
+import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
+import kaiyrzhan.de.zenmoney.gradle.libs
 import org.gradle.api.artifacts.ExternalModuleDependency
 
 plugins.applyIfNeeded(libs.plugins.java.library.get().pluginId)

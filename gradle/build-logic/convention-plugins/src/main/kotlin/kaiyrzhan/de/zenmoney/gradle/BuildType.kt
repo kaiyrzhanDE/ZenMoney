@@ -1,6 +1,6 @@
 @file:Suppress("ktlint")
 
-package kaiyrzhan.de.mvkitchen.gradle
+package kaiyrzhan.de.zenmoney.gradle
 
 import com.android.build.api.dsl.BuildType as CommonBuildType
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile

@@ -53,10 +53,10 @@ java-library = { id = "java-library" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
-mvkitchen-android-base = { id = "android.base" }
-mvkitchen-android-application = { id = "android.application" }
-mvkitchen-android-library = { id = "android.library" }
-mvkitchen-kotlin-library = { id = "kotlin.library" }
-mvkitchen-jetpack-compose = { id = "jetpack-compose.base" }
-mvkitchen-ktlint = { id = "ktlint" }
-mvkitchen-detekt = { id = "detekt" }
+zenmoney-android-base = { id = "android.base" }
+zenmoney-android-application = { id = "android.application" }
+zenmoney-android-library = { id = "android.library" }
+zenmoney-kotlin-library = { id = "kotlin.library" }
+zenmoney-jetpack-compose = { id = "jetpack-compose.base" }
+zenmoney-ktlint = { id = "ktlint" }
+zenmoney-detekt = { id = "detekt" }

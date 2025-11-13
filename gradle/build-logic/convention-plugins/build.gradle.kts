@@ -3,7 +3,7 @@ plugins {
     `java-gradle-plugin`
 }
 
-group = "kaiyrzhan.de.mvkitchen.gradle"
+group = "kaiyrzhan.de.zenmoney.gradle"
 
 dependencies {
     implementation(libs.gradleplugins.android)

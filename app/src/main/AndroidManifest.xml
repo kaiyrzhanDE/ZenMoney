@@ -8,14 +8,14 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".ui.MVKitchenApp"
+        android:name=".ui.ZenMoneyApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MVKitchen">
+        android:theme="@style/Theme.ZenMoney">
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MVKitchen">
+            android:theme="@style/Theme.ZenMoney">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
