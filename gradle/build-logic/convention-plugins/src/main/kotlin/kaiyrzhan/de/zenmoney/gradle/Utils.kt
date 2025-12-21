@@ -2,6 +2,8 @@
 
 package kaiyrzhan.de.zenmoney.gradle
 
+import kaiyrzhan.de.zenmoney.gradle.libs
+import org.gradle.api.artifacts.ExternalModuleDependency
 import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.plugins.PluginContainer
 import org.gradle.api.provider.Provider
@@ -24,6 +26,13 @@ internal fun DependencyHandlerScope.debugImplementation(dependencyNotation: Stri
 private const val DETEKT_PLUGINS = "detektPlugins"
 internal fun DependencyHandlerScope.detektPlugins(dependencyNotation: Provider<MinimalExternalModuleDependency>){
     DETEKT_PLUGINS(dependencyNotation)
+}
+
+internal const val KTLINT = "ktlint"
+internal fun DependencyHandlerScope.ktLint(
+    dependencyConfiguration : ExternalModuleDependency.() -> Unit,
+) {
+    KTLINT(libs.ktlint.cli, dependencyConfiguration)
 }
 
 /**

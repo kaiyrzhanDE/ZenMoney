@@ -1,17 +1,11 @@
+import kaiyrzhan.de.zenmoney.gradle.KTLINT
+import kaiyrzhan.de.zenmoney.gradle.ktLint
 import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
 import kaiyrzhan.de.zenmoney.gradle.libs
-import org.gradle.api.artifacts.ExternalModuleDependency
 
 plugins.applyIfNeeded(libs.plugins.java.library.get().pluginId)
 
-private val ktLintConfigName = "ktlint"
-private val ktLintConfig = configurations.create(ktLintConfigName)
-
-private fun DependencyHandlerScope.ktLint(
-    dependencyConfiguration : ExternalModuleDependency.() -> Unit,
-) {
-    ktLintConfigName(libs.ktlint.cli, dependencyConfiguration)
-}
+private val ktLintConfig = configurations.create(KTLINT)
 
 dependencies {
     ktLint {
