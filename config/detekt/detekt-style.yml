@@ -1,0 +1,275 @@
+style:
+    active: true
+    AlsoCouldBeApply:
+        active: false
+    BracesOnIfStatements:
+        active: false
+        singleLine: 'never'
+        multiLine: 'always'
+    BracesOnWhenStatements:
+        active: false
+        singleLine: 'necessary'
+        multiLine: 'consistent'
+    CanBeNonNullable:
+        active: true
+    CascadingCallWrapping:
+        active: true
+        includeElvis: true
+    ClassOrdering:
+        active: true
+    CollapsibleIfStatements:
+        active: true
+    DataClassContainsFunctions:
+        active: true
+        conversionFunctionPrefix:
+            - 'to', 'from'
+        allowOperators: false
+    DataClassShouldBeImmutable:
+        active: true
+    DestructuringDeclarationWithTooManyEntries:
+        active: true
+        maxDestructuringEntries: 3
+    DoubleNegativeExpression:
+        active: true
+    DoubleNegativeLambda:
+        active: true
+        negativeFunctions:
+            -   reason: 'Use `takeIf` instead.'
+                value: 'takeUnless'
+            -   reason: 'Use `all` instead.'
+                value: 'none'
+    EqualsNullCall:
+        active: true
+    EqualsOnSignatureLine:
+        active: true
+    ExplicitCollectionElementAccessMethod:
+        active: false
+    ExplicitItLambdaMultipleParameters:
+        active: true
+    ExplicitItLambdaParameter:
+        active: true
+    ExpressionBodySyntax:
+        active: true
+    ForbiddenAnnotation:
+        active: true
+        annotations:
+            -   reason: 'it is a java annotation. Use `Suppress` instead.'
+                value: 'java.lang.SuppressWarnings'
+            -   reason: 'it is a java annotation. Use `kotlin.Deprecated` instead.'
+                value: 'java.lang.Deprecated'
+            -   reason: 'it is a java annotation. Use `kotlin.annotation.MustBeDocumented` instead.'
+                value: 'java.lang.annotation.Documented'
+            -   reason: 'it is a java annotation. Use `kotlin.annotation.Target` instead.'
+                value: 'java.lang.annotation.Target'
+            -   reason: 'it is a java annotation. Use `kotlin.annotation.Retention` instead.'
+                value: 'java.lang.annotation.Retention'
+            -   reason: 'it is a java annotation. Use `kotlin.annotation.Repeatable` instead.'
+                value: 'java.lang.annotation.Repeatable'
+            -   reason: 'Kotlin does not support @Inherited annotation, see https://youtrack.jetbrains.com/issue/KT-22265'
+                value: 'java.lang.annotation.Inherited'
+    ForbiddenComment:
+        active: false
+    ForbiddenImport:
+        active: false
+        imports: []
+    ForbiddenMethodCall:
+        active: false
+        methods:
+            -   reason: 'print does not allow you to configure the output stream. Use a logger instead.'
+                value: 'kotlin.io.print'
+            -   reason: 'println does not allow you to configure the output stream. Use a logger instead.'
+                value: 'kotlin.io.println'
+    ForbiddenSuppress:
+        active: false
+        rules: [ ]
+    ForbiddenVoid:
+        active: true
+        ignoreOverridden: false
+        ignoreUsageInGenerics: false
+    FunctionOnlyReturningConstant:
+        active: true
+        ignoreOverridableFunction: true
+        ignoreActualFunction: true
+        excludedFunctions: [ ]
+    LoopWithTooManyJumpStatements:
+        active: true
+        maxJumpCount: 1
+    MagicNumber:
+        active: true
+        excludes: [ '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/androidUnitTest/**', '**/androidInstrumentedTest/**', '**/jsTest/**', '**/iosTest/**', '**/*.kts' ]
+        ignoreNumbers:
+            - '-1'
+            - '0'
+            - '1'
+            - '2'
+        ignoreHashCodeFunction: true
+        ignorePropertyDeclaration: false
+        ignoreLocalVariableDeclaration: false
+        ignoreConstantDeclaration: true
+        ignoreCompanionObjectPropertyDeclaration: true
+        ignoreAnnotation: false
+        ignoreNamedArgument: true
+        ignoreEnums: false
+        ignoreRanges: false
+        ignoreExtensionFunctions: true
+    MandatoryBracesLoops:
+        active: true
+    MaxChainedCallsOnSameLine:
+        active: true
+        maxChainedCalls: 5
+    MaxLineLength:
+        active: true
+        maxLineLength: 120
+        excludePackageStatements: true
+        excludeImportStatements: true
+        excludeCommentStatements: false
+        excludeRawStrings: true
+    MayBeConstant:
+        active: true
+    ModifierOrder:
+        active: true
+    MultilineLambdaItParameter:
+        active: false
+    MultilineRawStringIndentation:
+        active: false
+        indentSize: 4
+        trimmingMethods:
+            - 'trimIndent'
+            - 'trimMargin'
+    NestedClassesVisibility:
+        active: true
+    NewLineAtEndOfFile:
+        active: true
+    NullableBooleanCheck:
+        active: true
+    ObjectLiteralToLambda:
+        active: true
+    OptionalAbstractKeyword:
+        active: true
+    OptionalUnit:
+        active: true
+    ProtectedMemberInFinalClass:
+        active: true
+    RangeUntilInsteadOfRangeTo:
+        active: true
+    RedundantConstructorKeyword:
+        active: true
+    RedundantExplicitType:
+        active: false
+    RedundantHigherOrderMapUsage:
+        active: true
+    RedundantVisibilityModifierRule:
+        active: false
+    ReturnCount:
+        active: true
+        max: 2
+        excludedFunctions:
+            - 'equals'
+        excludeLabeled: false
+        excludeReturnFromLambda: true
+        excludeGuardClauses: false
+    SafeCast:
+        active: true
+    SerialVersionUIDInSerializableClass:
+        active: true
+    SpacingAfterPackageDeclaration:
+        active: true
+    StringShouldBeRawString:
+        active: true
+        maxEscapedCharacterCount: 2
+        ignoredCharacters: [ ]
+    ThrowsCount:
+        active: true
+        max: 2
+        excludeGuardClauses: false
+    TrailingWhitespace:
+        active: true
+    TrimMultilineRawString:
+        active: true
+        trimmingMethods:
+            - 'trimIndent'
+            - 'trimMargin'
+    UnderscoresInNumericLiterals:
+        active: true
+        acceptableLength: 4
+        allowNonStandardGrouping: false
+    UnnecessaryAnnotationUseSiteTarget:
+        active: false
+    UnnecessaryAny:
+        active: true
+    UnnecessaryApply:
+        active: true
+    UnnecessaryBackticks:
+        active: true
+    UnnecessaryBracesAroundTrailingLambda:
+        active: true
+    UnnecessaryFilter:
+        active: true
+    UnnecessaryInheritance:
+        active: true
+    UnnecessaryInnerClass:
+        active: true
+    UnnecessaryLet:
+        active: true
+    UnnecessaryParentheses:
+        active: false
+        allowForUnclearPrecedence: false
+    UnnecessaryReversed:
+        active: true
+    UnusedImports:
+        active: true
+    UnusedParameter:
+        active: true
+        allowedNames: 'ignored|expected'
+    UnusedPrivateClass:
+        active: true
+    UnusedPrivateFunction:
+        active: true
+    UnusedPrivateMember:
+        active: true
+        allowedNames: ''
+    UnusedPrivateProperty:
+        active: true
+        allowedNames: '_|ignored|expected|serialVersionUID'
+    UnusedVariable:
+        active: true
+        allowedNames: 'ignored|_'
+    UseAnyOrNoneInsteadOfFind:
+        active: true
+    UseArrayLiteralsInAnnotations:
+        active: true
+    UseCheckNotNull:
+        active: true
+    UseCheckOrError:
+        active: true
+    UseDataClass:
+        active: false
+        allowVars: false
+    UseEmptyCounterpart:
+        active: false
+    UseIfEmptyOrIfBlank:
+        active: true
+    UseIfInsteadOfWhen:
+        active: false
+        ignoreWhenContainingVariableDeclaration: false
+    UseIsNullOrEmpty:
+        active: true
+    UseLet:
+        active: true
+    UseOrEmpty:
+        active: true
+    UseRequire:
+        active: true
+    UseRequireNotNull:
+        active: true
+    UseSumOfInsteadOfFlatMapSize:
+        active: false
+    UselessCallOnNotNull:
+        active: true
+    UtilityClassWithPublicConstructor:
+        active: true
+    VarCouldBeVal:
+        active: true
+        ignoreLateinitVar: false
+    WildcardImport:
+        active: true
