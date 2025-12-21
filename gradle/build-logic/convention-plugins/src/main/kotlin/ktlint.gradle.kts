@@ -8,7 +8,7 @@ plugins.applyIfNeeded(libs.plugins.java.library.get().pluginId)
 private val ktLintConfig = configurations.create(KTLINT)
 
 dependencies {
-    ktLint {
+    ktLint(libs.ktlint.cli) {
         attributes {
             attribute(
                 Bundling.BUNDLING_ATTRIBUTE,
