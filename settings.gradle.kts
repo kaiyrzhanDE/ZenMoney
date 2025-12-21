@@ -4,7 +4,7 @@ rootProject.name = "ZenMoney"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
-    includeBuild("gradle/build-logic")
+    includeBuild("build-logic")
 
     repositories {
         google {

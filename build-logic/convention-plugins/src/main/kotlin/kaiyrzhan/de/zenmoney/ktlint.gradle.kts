@@ -1,3 +1,5 @@
+package kaiyrzhan.de.zenmoney
+
 import kaiyrzhan.de.zenmoney.gradle.KTLINT
 import kaiyrzhan.de.zenmoney.gradle.ktLint
 import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded

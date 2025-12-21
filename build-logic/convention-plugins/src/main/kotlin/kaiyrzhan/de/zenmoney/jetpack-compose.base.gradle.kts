@@ -1,3 +1,5 @@
+package kaiyrzhan.de.zenmoney
+
 import kaiyrzhan.de.zenmoney.gradle.androidConfig
 import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
 import kaiyrzhan.de.zenmoney.gradle.implementation

@@ -1,3 +1,5 @@
+package kaiyrzhan.de.zenmoney
+
 import io.gitlab.arturbosch.detekt.Detekt
 import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
 import kaiyrzhan.de.zenmoney.gradle.detektConfig
@@ -30,7 +32,7 @@ tasks.withType<Detekt>()
         include("**/src/*/kotlin/**/*.kt") // Include all Kotlin source files from all directories
 
         exclude(
-            "gradle/build-logic", // Don't analyze Convention Plugin for the project
+            "build-logic", // Don't analyze Convention Plugin for the project
             "**/build/**", // Exclude all generated files from Gradle Build directory
         )
 
