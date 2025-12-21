@@ -1,6 +1,4 @@
 import kaiyrzhan.de.zenmoney.gradle.ProjectTargets
-import kaiyrzhan.de.zenmoney.gradle.androidConfig
-import kaiyrzhan.de.zenmoney.gradle.applicationConfig
 import kaiyrzhan.de.zenmoney.gradle.applicationDefaultConfig
 import kaiyrzhan.de.zenmoney.gradle.applyIfNeeded
 import kaiyrzhan.de.zenmoney.gradle.configureAppBuildTypes
