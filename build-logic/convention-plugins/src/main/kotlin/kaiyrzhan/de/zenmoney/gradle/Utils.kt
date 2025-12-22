@@ -8,6 +8,12 @@ import org.gradle.api.plugins.PluginContainer
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+internal val kotlinOptIns: List<String> = listOf(
+    "kotlin.time.ExperimentalTime",
+    "kotlin.uuid.ExperimentalUuidApi",
+)
+
+internal const val DESKTOP = "desktop"
 private const val IMPLEMENTATION = "implementation"
 internal fun DependencyHandlerScope.implementation(dependencyNotation: Provider<MinimalExternalModuleDependency>){
     IMPLEMENTATION(dependencyNotation)
@@ -20,6 +26,11 @@ internal fun DependencyHandlerScope.implementation(dependencyNotation: Any){
 private const val DEBUG_IMPLEMENTATION = "debugImplementation"
 internal fun DependencyHandlerScope.debugImplementation(dependencyNotation: String){
     DEBUG_IMPLEMENTATION(dependencyNotation)
+}
+
+private const val TEST_IMPLEMENTATION = "testImplementation"
+internal fun DependencyHandlerScope.testImplementation(dependencyNotation: Any){
+    TEST_IMPLEMENTATION(dependencyNotation)
 }
 
 private const val DETEKT_PLUGINS = "detektPlugins"

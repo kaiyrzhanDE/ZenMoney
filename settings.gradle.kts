@@ -45,6 +45,4 @@ private fun includeAllModules(directory: String) {
 }
 
 includeAllModules(directory = "core")
-includeAllModules(directory = "library")
-
 include(":app")

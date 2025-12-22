@@ -48,7 +48,7 @@ private fun CommonBuildType.applyCommonConfig(type: BuildType, project: Project)
     }
 }
 
-internal fun Project.configureCommonBuildTypes() {
+public fun Project.configureCommonBuildTypes() {
     androidConfig {
         buildTypes {
             BuildType.values().forEach { type ->
@@ -66,7 +66,7 @@ private fun String.withPrefix(prefix: String): String? {
         .let { "$prefix$it" }
 }
 
-internal fun Project.configureAppBuildTypes() {
+public fun Project.configureAppBuildTypes() {
     applicationConfig {
         buildTypes {
             BuildType.values().forEach { type ->

@@ -13,6 +13,7 @@ import com.android.build.api.dsl.Installation
 import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.ProductFlavor
 import com.android.build.api.dsl.TestExtension
+import com.android.build.api.variant.KotlinMultiplatformAndroidComponentsExtension
 import com.android.build.gradle.internal.dsl.DynamicFeatureExtension
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.accessors.dm.LibrariesForLibs
@@ -22,9 +23,11 @@ import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.the
 import org.gradle.kotlin.dsl.withType
+import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompilerOptions
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 internal val Project.libs: LibrariesForLibs
@@ -39,6 +42,7 @@ internal fun LibrariesForLibs.javaVersion(target: ProjectTargets.JvmTarget): Jav
 private fun LibrariesForLibs.jvmVersion(target: ProjectTargets.JvmTarget): Int {
     return when (target) {
         ProjectTargets.Android -> versions.android.javaVersion.get().toInt()
+        ProjectTargets.Desktop -> versions.desktop.javaVersion.get().toInt()
     }
 }
 
@@ -92,6 +96,30 @@ internal fun Project.applicationDefaultConfig(
     block: ApplicationDefaultConfig.() -> Unit,
 ) = applicationExtension.defaultConfig(block)
 
+private val Project.kmpExtension: KotlinMultiplatformExtension
+    get() {
+        return extensions.findByType(KotlinMultiplatformExtension::class) ?: error(
+            "\"Project.kmpExtension\" value may be called only "
+                + "from kotlin multiplatform gradle script",
+        )
+    }
+
+internal inline fun Project.kmpConfig(
+    block: KotlinMultiplatformExtension.() -> Unit
+) = kmpExtension.block()
+
+private val Project.kmpAndroidLibComponentExtension: KotlinMultiplatformAndroidComponentsExtension
+    get() {
+        return extensions.findByType(KotlinMultiplatformAndroidComponentsExtension::class) ?: error(
+            "\"Project.kmpAndroidLibComponentExtension\" value may be called only "
+                + "from kotlin multiplatform android gradle script",
+        )
+    }
+
+internal inline fun Project.kmpAndroidLibComponentConfig(
+    block: KotlinMultiplatformAndroidComponentsExtension.() -> Unit
+) = kmpAndroidLibComponentExtension.block()
+
 private val Project.javaExtension: JavaPluginExtension
     get() {
         return extensions.findByType(JavaPluginExtension::class)
@@ -100,6 +128,10 @@ private val Project.javaExtension: JavaPluginExtension
                     .plus("from kotlin or java library"),
             )
     }
+
+internal val Project.composeExtension: ComposeExtension
+    get() = extensions.findByType(ComposeExtension::class.java)
+        ?: error("Compose plugin is not applied")
 
 internal fun Project.javaConfig(
     block: JavaPluginExtension.() -> Unit,
@@ -115,6 +147,8 @@ internal val Project.kotlinBaseExtension: KotlinBaseExtension
     get() = extensions.findByType(KotlinBaseExtension::class)
         ?: error("Kotlin base plugin is not applied")
 
+
+
 internal fun Project.enableExplicitApi() = kotlinBaseExtension.explicitApi()
 
 internal val Project.detektExtension: DetektExtension
@@ -125,7 +159,7 @@ internal fun Project.detektConfig(
     block: DetektExtension.() -> Unit,
 ) = block(detektExtension)
 
-internal fun Project.buildNameSpace(): String {
+public fun Project.buildNameSpace(): String {
     val suffix = project.path //Returns :feature:login
         .removePrefix(":")
         .replace(":", ".")

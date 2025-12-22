@@ -8,6 +8,7 @@ group = "kaiyrzhan.de.zenmoney.gradle"
 dependencies {
     implementation(libs.gradleplugins.android)
     implementation(libs.gradleplugins.kotlin)
+    implementation(libs.gradleplugins.compose)
     implementation(libs.gradleplugins.compose.compiler)
     implementation(libs.gradleplugins.detekt)
 
