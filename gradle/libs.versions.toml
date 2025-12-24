@@ -2,41 +2,77 @@
 android-compileSdk = "36"
 android-targetSdk = "36"
 android-minSdk = "24"
+android-buildtools = "36.1.0"
 android-javaVersion = "11"
+desktop-javaVersion = "21"
 
 gradleplugins-javaVersion = "21"
 
 app-versionCode = "1"
 app-versionName = "1.0"
 
-android-gradle-plugin = "8.11.1"
-kotlin = "2.2.10"
-
+android-gradle-plugin = "8.13.0"
+kotlin = "2.2.21"
+junit = "4.13.2"
 androidx-core-ktx = "1.17.0"
+androidx-activity-compose = "1.11.0"
 androidx-lifecycle-runtime-ktx = "2.9.3"
 androidx-appcompat = "1.7.1"
+androidx-annotation = "1.9.1"
+androidx-espresso-core = "3.7.0"
+androidx-material = "1.13.0"
+androidx-lifecycle = "2.9.6"
+jetbrains-lifecycle = "2.10.0-alpha04"
 
-androidx-activity-compose = "1.10.1"
-androidx-compose-bom = "2025.08.01"
+compose-multiplatform = "1.10.0-beta01"
+compose-multiplatform-material3 = "1.9.0"
+jetbrains-material3-adaptive = "1.2.0"
+
+kotlinx-coroutines = "1.10.2"
+kotlinx-serialization = "1.9.0"
+kotlinx-datetime = "0.7.1"
 
 ktlint = "1.7.1"
 detekt = "1.23.8"
 compose-rules = "0.4.27"
 
 [libraries]
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit", version.ref = "kotlin" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
-
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidx-annotation" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso-core" }
+androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
+
+jetbrains-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "jetbrains-lifecycle" }
+jetbrains-compose-ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "compose-multiplatform" }
+jetbrains-compose-ui-toolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "compose-multiplatform" }
+jetbrains-compose-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose-multiplatform" }
+jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
+jetbrains-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
+jetbrains-compose-ui-core = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-multiplatform" }
+jetbrains-compose-material3-adaptive = { module = "org.jetbrains.compose.material3.adaptive:adaptive", version.ref = "jetbrains-material3-adaptive" }
+jetbrains-compose-material3-core = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose-multiplatform-material3" }
+
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
 gradleplugins-android = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
 gradleplugins-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+gradleplugins-compose = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "compose-multiplatform" }
 gradleplugins-compose-compiler = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
 gradleplugins-detekt = { group = "io.gitlab.arturbosch.detekt", name = "io.gitlab.arturbosch.detekt.gradle.plugin", version.ref = "detekt" }
 
@@ -47,16 +83,34 @@ detektplugin-nlopez-composeRules = { group = "io.nlopez.compose.rules", name = "
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
 java-library = { id = "java-library" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-kmpLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "android-gradle-plugin" }
+
+jetbrains-compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+jetbrains-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
-zenmoney-android-base = { id = "android.base" }
-zenmoney-android-application = { id = "android.application" }
-zenmoney-android-library = { id = "android.library" }
-zenmoney-kotlin-library = { id = "kotlin.library" }
-zenmoney-jetpack-compose = { id = "jetpack-compose.base" }
-zenmoney-ktlint = { id = "ktlint" }
-zenmoney-detekt = { id = "detekt" }
+zenmoney-android-base = { id = "kaiyrzhan.de.zenmoney.android.base" }
+zenmoney-android-library = { id = "kaiyrzhan.de.zenmoney.android.library" }
+zenmoney-jetpack-compose-base = { id = "kaiyrzhan.de.zenmoney.jetpack.compose.base" }
+
+zenmoney-jetbrains-compose-base = { id = "kaiyrzhan.de.zenmoney.jetbrains.compose.base" }
+zenmoney-jetbrains-compose-android = { id = "kaiyrzhan.de.zenmoney.jetbrains.compose.android" }
+zenmoney-jetbrains-compose-ios = { id = "kaiyrzhan.de.zenmoney.jetbrains.compose.ios" }
+zenmoney-jetbrains-compose-desktop = { id = "kaiyrzhan.de.zenmoney.jetbrains.compose.desktop" }
+zenmoney-jetbrains-compose-all = { id = "kaiyrzhan.de.zenmoney.jetbrains.compose.all" }
+
+zenmoney-kmp-library-base = { id = "kaiyrzhan.de.zenmoney.kmp.library.base" }
+zenmoney-kmp-library-android = { id = "kaiyrzhan.de.zenmoney.kmp.library.android" }
+zenmoney-kmp-library-ios = { id = "kaiyrzhan.de.zenmoney.kmp.library.ios" }
+zenmoney-kmp-library-desktop = { id = "kaiyrzhan.de.zenmoney.kmp.library.desktop" }
+zenmoney-kmp-library-all = { id = "kaiyrzhan.de.zenmoney.kmp.library.all" }
+zenmoney-kmp-library = { id = "kaiyrzhan.de.zenmoney.kmp.library" }
+
+zenmoney-ktlint = { id = "kaiyrzhan.de.zenmoney.ktlint" }
+zenmoney-detekt = { id = "kaiyrzhan.de.zenmoney.detekt" }

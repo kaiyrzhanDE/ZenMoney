@@ -1,11 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
-rootProject.name = "ZenMoney"
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+rootProject.name = "build-logic"
 
 pluginManagement {
-    includeBuild("build-logic")
-
     repositories {
         google {
             mavenContent {
@@ -14,8 +11,8 @@ pluginManagement {
                 includeGroupAndSubgroups("com.google")
             }
         }
-        mavenCentral()
         gradlePluginPortal()
+        mavenCentral()
     }
 }
 
@@ -28,21 +25,14 @@ dependencyResolutionManagement {
                 includeGroupAndSubgroups("com.google")
             }
         }
+        gradlePluginPortal()
         mavenCentral()
+    }
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
     }
 }
 
-
-private fun isDirectoryGradleModule(file: File): Boolean {
-    val buildGradleFile = File(file, "build.gradle.kts")
-    return file.isDirectory && buildGradleFile.isFile && buildGradleFile.exists()
-}
-
-private fun includeAllModules(directory: String) {
-    file(directory)
-        .listFiles { directoryFile -> isDirectoryGradleModule(directoryFile) }
-        ?.forEach { directoryFile -> include(":${directory.replace('/', ':')}:${directoryFile.name}") }
-}
-
-includeAllModules(directory = "core")
-include(":app")
+include(":convention-plugins")
