@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.ComposeUIViewController
 import platform.UIKit.UIViewController
 
-fun rootViewController(): UIViewController {
+public fun rootViewController(): UIViewController {
     return ComposeUIViewController(
         content = {
             RootScreen(modifier = Modifier.fillMaxSize())
