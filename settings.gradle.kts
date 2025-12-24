@@ -32,17 +32,5 @@ dependencyResolutionManagement {
     }
 }
 
-
-private fun isDirectoryGradleModule(file: File): Boolean {
-    val buildGradleFile = File(file, "build.gradle.kts")
-    return file.isDirectory && buildGradleFile.isFile && buildGradleFile.exists()
-}
-
-private fun includeAllModules(directory: String) {
-    file(directory)
-        .listFiles { directoryFile -> isDirectoryGradleModule(directoryFile) }
-        ?.forEach { directoryFile -> include(":${directory.replace('/', ':')}:${directoryFile.name}") }
-}
-
-includeAllModules(directory = "core")
+include(":core:uikit")
 include(":app")
