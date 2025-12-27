@@ -1,18 +1,7 @@
 name: Code Quality Checks
 
 on:
-    pull_request:
-        branches: [ "dev", "main", "master" ]
-        paths:
-            - '**/*.kt'
-            - '**/*.kts'
-            - 'gradle/**'
-            - 'gradle.properties'
-            - 'settings.gradle.kts'
-            - '**/build.gradle.kts'
-            - 'build.gradle.kts'
-            - 'config/**'
-            - '.github/workflows/code_quality_check.yml'
+    workflow_dispatch:
 
 concurrency:
     group: pr-${{ github.event.pull_request.number }}
