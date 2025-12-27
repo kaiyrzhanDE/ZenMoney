@@ -14,9 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 
 @Composable
-public fun RootScreen(
-    modifier: Modifier = Modifier,
-) {
+public fun RootScreen(modifier: Modifier = Modifier) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold(
@@ -25,13 +23,10 @@ public fun RootScreen(
             .windowInsetsPadding(WindowInsets.systemBars),
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState) { data ->
-                Snackbar(
-                    snackbarData = data,
-                )
+                Snackbar(snackbarData = data)
             }
         },
     ) { contentPadding ->
-
         Text("Hello ZenMoney App!!")
     }
 }
