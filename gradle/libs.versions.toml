@@ -34,7 +34,7 @@ kotlinx-datetime = "0.7.1"
 
 ktlint = "1.7.1"
 detekt = "1.23.8"
-compose-rules = "0.4.27"
+compose-rules = "0.5.3"
 
 [libraries]
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
